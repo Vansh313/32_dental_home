@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>32 Dental Home, Sector 6, Karnal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0e4472; --ink:#13283b; --muted:#53687a; --mist:#eaf2f8; --paper:#ffffff;
+  --line:#d3e0ea; --accent:#12806f; --accent-ink:#ffffff; --bubble:#dcf4e4; --chat:#e9eef2;
+  --open:#12806f; --closed:#b4472f;
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#8fc3ec; --ink:#e6eef5; --muted:#9db1c2; --mist:#16222d; --paper:#0d1720;
+    --line:#26384a; --accent:#2bb59f; --accent-ink:#04211c; --bubble:#17463a; --chat:#1b2a37;
+    --open:#2bb59f; --closed:#ef8f78; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#8fc3ec; --ink:#e6eef5; --muted:#9db1c2; --mist:#16222d; --paper:#0d1720;
+  --line:#26384a; --accent:#2bb59f; --accent-ink:#04211c; --bubble:#17463a; --chat:#1b2a37;
+  --open:#2bb59f; --closed:#ef8f78; color-scheme:dark;
+}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:10}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0;color:var(--navy)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{font:700 22px/1 var(--head);color:var(--navy);text-decoration:none;display:flex;align-items:baseline;gap:8px}
+.brand small{font:400 13px var(--body);color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;border:2px solid var(--navy);background:transparent;color:var(--navy);font:600 16px var(--body);text-decoration:none;cursor:pointer}
+.btn.solid{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{filter:brightness(1.07)}
+
+.hero{padding:44px 0 36px}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--muted);margin-bottom:16px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--closed)}
+.status.open .dot{background:var(--open);box-shadow:0 0 0 0 var(--open);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@media (prefers-reduced-motion:reduce){.status.open .dot{animation:none}html{scroll-behavior:auto}}
+.hero h1{font-size:clamp(38px,8vw,68px);font-weight:700;letter-spacing:-.02em;max-width:14ch}
+.hero p{max-width:46ch;color:var(--muted);font-size:19px;margin:18px 0 26px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+section{padding:40px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(28px,5vw,38px);margin-bottom:8px}
+.lead{color:var(--muted);margin:0 0 24px;max-width:52ch}
+
+/* booking */
+.book{display:grid;gap:28px}
+@media(min-width:760px){.book{grid-template-columns:1fr 1fr;align-items:start}}
+form{display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:600;font-size:15px}
+input,select{font:400 17px var(--body);color:var(--ink);background:var(--mist);border:1px solid var(--line);border-radius:10px;min-height:48px;padding:0 14px;width:100%}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;color:var(--muted)}
+.check input{width:20px;min-height:20px;margin-top:3px;accent-color:var(--accent)}
+.note{font-size:14px;color:var(--muted);margin:0}
+#err{color:var(--closed);font-size:14px;min-height:1em;margin:0}
+
+/* services */
+.services{list-style:none;margin:0;padding:0;display:grid;gap:0 32px}
+@media(min-width:640px){.services{grid-template-columns:1fr 1fr}}
+.services li{padding:14px 0 14px 16px;border-left:4px solid var(--accent);margin:6px 0;font-weight:600}
+.services span{display:block;font-weight:400;font-size:15px;color:var(--muted)}
+
+/* recall demo */
+.recall{background:var(--mist);border-radius:20px;padding:24px;display:grid;gap:24px}
+@media(min-width:760px){.recall{grid-template-columns:1fr 1fr;align-items:center;padding:36px}}
+.tabs{display:grid;gap:8px;margin-top:18px}
+.tab{text-align:left;padding:12px 16px;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink);font:600 16px var(--body);cursor:pointer}
+.tab[aria-selected="true"]{border-color:var(--accent)}
+.tab small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.phone{background:var(--chat);border-radius:22px;padding:16px;max-width:340px;width:100%;margin:0 auto;border:1px solid var(--line)}
+.phone .who{font:600 14px var(--body);color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.bubble{background:var(--bubble);border-radius:14px 14px 14px 4px;padding:12px 14px;font-size:16px;line-height:1.45}
+.bubble time{display:block;text-align:right;font-size:12px;color:var(--muted);margin-top:6px}
+.reply{margin:12px 0 0 auto;width:max-content;background:var(--paper);border-radius:14px 14px 4px 14px;padding:8px 16px;font-weight:600;border:1px solid var(--line)}
+
+/* visit */
+.visit{display:grid;gap:24px}
+@media(min-width:760px){.visit{grid-template-columns:1fr 1fr}}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 20px}
+dt{font-weight:600;color:var(--muted)} dd{margin:0}
+footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">32 Dental Home <small>Sector 6, Karnal</small></a>
+    <a class="btn solid" href="tel:+917056712321">Call now</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="status" id="status"><span class="dot"></span><span id="statusText">Checking hours…</span></div>
+    <h1>Book your dental visit in 30 seconds.</h1>
+    <p>A complete dental care clinic in Sector 6, Karnal. Pick a service and a time, and we confirm on WhatsApp.</p>
+    <div class="actions">
+      <a class="btn solid" href="#book">Book appointment</a>
+      <a class="btn" href="tel:+917056712321">+91 70567 12321</a>
+    </div>
+  </div>
+
+  <section id="book">
+    <div class="wrap book">
+      <div>
+        <h2>Request an appointment</h2>
+        <p class="lead">Fill this in and it opens WhatsApp with your request ready to send. The clinic confirms your slot there.</p>
+        <p class="note">Morning and evening sessions. The clinic is closed between 2 pm and 5 pm.</p>
+      </div>
+      <form id="form" novalidate>
+        <label>Your name <input id="name" autocomplete="name" required></label>
+        <label>Mobile number <input id="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required></label>
+        <label>Service
+          <select id="service">
+            <option>Check-up</option>
+            <option>Teeth cleaning and polishing</option>
+            <option>Tooth extraction</option>
+            <option>Filling</option>
+            <option>Root canal treatment</option>
+            <option>Braces and orthodontics</option>
+            <option>Dental implants</option>
+            <option>Whitening and cosmetic dentistry</option>
+          </select>
+        </label>
+        <div class="row">
+          <label>Date <input id="date" type="date" required></label>
+          <label>Session
+            <select id="session"><option>Morning</option><option>Evening</option></select>
+          </label>
+        </div>
+        <label class="check"><input id="consent" type="checkbox"> <span>I agree to receive appointment and follow-up reminders on WhatsApp from 32 Dental Home. I can opt out any time.</span></label>
+        <p id="err" role="alert"></p>
+        <button class="btn solid" type="submit">Send on WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What we treat</h2>
+      <p class="lead">Complete dental solutions in one place.</p>
+      <ul class="services">
+        <li>Check-ups and cleaning<span>Cleaning, polishing, regular exams</span></li>
+        <li>Fillings and extractions<span>Quick relief for pain and decay</span></li>
+        <li>Root canal treatment<span>Done in sittings, with follow-up visits</span></li>
+        <li>Braces and orthodontics<span>Straighter teeth with monthly adjustments</span></li>
+        <li>Dental implants<span>Permanent replacement for missing teeth</span></li>
+        <li>Whitening and cosmetic dentistry<span>A brighter, more confident smile</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="reminders">
+    <div class="wrap">
+      <h2>Never miss your next visit</h2>
+      <p class="lead">Patients who agree to reminders get a short WhatsApp message when a visit is due. Tap a case to see the message.</p>
+      <div class="recall">
+        <div>
+          <div class="tabs" role="tablist" aria-label="Reminder types">
+            <button class="tab" role="tab" aria-selected="true" data-i="0">Cleaning and check-ups<small>Sent 6 months after the last visit</small></button>
+            <button class="tab" role="tab" aria-selected="false" data-i="1">Braces<small>Sent a few days before each monthly visit</small></button>
+            <button class="tab" role="tab" aria-selected="false" data-i="2">Root canal and implants<small>Sent before the next sitting</small></button>
+          </div>
+        </div>
+        <div class="phone" aria-live="polite">
+          <div class="who">32 Dental Home</div>
+          <div class="bubble"><span id="msg"></span><time>10:30 am</time></div>
+          <div class="reply">YES</div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:14px">Messages never name a treatment, so they stay private on a shared phone.</p>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit">
+      <div>
+        <h2>Visit us</h2>
+        <p class="lead">H. No. 1755, near Shiv Mandir Road, Housing Board Colony, Sector 6, Karnal, Haryana 132001</p>
+        <div class="actions">
+          <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=32+Dental+Home+Sector+6+Karnal" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn" href="https://wa.me/917056712321" target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
+      </div>
+      <dl>
+        <dt>Morning</dt><dd>10 am to 2 pm</dd>
+        <dt>Evening</dt><dd>5 pm to 8 pm</dd>
+        <dt>Phone</dt><dd><a href="tel:+917056712321">+91 70567 12321</a></dd>
+        <dt>Google</dt><dd>5.0 rating, 59 reviews</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">32 Dental Home, a complete dental care clinic. Sample page for review.</div></footer>
+
+<script>
+(function(){
+  var NUMBER = "917056712321";
+  // Opening hours in minutes after midnight. Edit to match the clinic.
+  var SLOTS = [[10*60, 14*60], [17*60, 20*60]];
+
+  function fmt(m){var h=Math.floor(m/60),ap=h>=12?"pm":"am";h=h%12||12;return h+" "+ap;}
+  function updateStatus(){
+    var d=new Date(), m=d.getHours()*60+d.getMinutes(), el=document.getElementById("status"), t=document.getElementById("statusText");
+    var cur=SLOTS.find(function(s){return m>=s[0]&&m<s[1];});
+    if(cur){el.className="status open";t.textContent="Open now, until "+fmt(cur[1]);return;}
+    var next=SLOTS.find(function(s){return m<s[0];});
+    el.className="status";
+    t.textContent=next?"Closed now, opens at "+fmt(next[0]):"Closed now, opens tomorrow at "+fmt(SLOTS[0][0]);
+  }
+  updateStatus(); setInterval(updateStatus,60000);
+
+  // date: no past dates
+  var date=document.getElementById("date"), t=new Date();
+  date.min=t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");
+
+  document.getElementById("form").addEventListener("submit",function(e){
+    e.preventDefault();
+    var name=document.getElementById("name").value.trim(),
+        phone=document.getElementById("phone").value.replace(/\D/g,"").slice(-10),
+        err=document.getElementById("err");
+    if(!name){err.textContent="Enter your name.";return;}
+    if(phone.length!==10){err.textContent="Enter a 10-digit mobile number.";return;}
+    if(!date.value){err.textContent="Choose a date.";return;}
+    err.textContent="";
+    var consent=document.getElementById("consent").checked?"Yes":"No";
+    var text="Hello 32 Dental Home, I would like to book an appointment.\n"+
+      "Name: "+name+"\nMobile: "+phone+"\nService: "+document.getElementById("service").value+
+      "\nDate: "+date.value+"\nSession: "+document.getElementById("session").value+
+      "\nReminders on WhatsApp: "+consent;
+    window.open("https://wa.me/"+NUMBER+"?text="+encodeURIComponent(text),"_blank","noopener");
+  });
+
+  var MSGS=[
+    "Namaste Anita, it’s been a while since your last visit to 32 Dental Home. Your check-up is due. Reply YES and we’ll find you a slot.",
+    "Namaste Anita, your monthly visit at 32 Dental Home is due this week. Reply YES to book a time.",
+    "Namaste Anita, your next sitting at 32 Dental Home is due on 28 Oct. Reply YES to confirm, or send us a time that suits you."
+  ];
+  var tabs=document.querySelectorAll(".tab"), msg=document.getElementById("msg");
+  function pick(i){
+    tabs.forEach(function(b,j){b.setAttribute("aria-selected",j===i?"true":"false");});
+    msg.textContent=MSGS[i];
+  }
+  tabs.forEach(function(b){b.addEventListener("click",function(){pick(+b.dataset.i);});});
+  pick(0);
+})();
+</script>
+</body>
+</html>
